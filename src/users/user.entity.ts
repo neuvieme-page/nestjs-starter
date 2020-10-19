@@ -1,3 +1,4 @@
+import { Identity } from 'src/identity/identity.entity';
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
 
 export enum UserRole {
@@ -19,9 +20,6 @@ export class User {
   @Column({ unique: true })
   email: string;
 
-  @Column({ select: false })
-  password: string;
-
   @Column({
     default: new Date(),
   })
@@ -38,4 +36,10 @@ export class User {
     default: UserRole.USER,
   })
   role: UserRole;
+
+  @OneToMany(
+    type => Identity,
+    identity => identity.user,
+  )
+  identities: Identity[];
 }

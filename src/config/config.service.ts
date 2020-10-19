@@ -18,6 +18,10 @@ class ConfigService {
     return this;
   }
 
+  public getSecret() {
+    return this.get('APP_SECRET')
+  }
+
   public getPort() {
     return this.get('PORT', true);
   }
@@ -27,10 +31,16 @@ class ConfigService {
     return mode != 'development';
   }
 
-  DB_NAME = 'database';
-  DB_USER = 'user';
-  DB_PASSWORD = 'example';
-  DB_HOST = 'localhost';
+  public getProvider(provider) {
+    const callbackURL = 
+      this.get(`${provider.toUpperCase()}_CALLBACK_URL`, false) || `${this.get('BASE_URL')}/auth/twitter/callback`
+    return {
+      provider,
+      callbackURL,
+      apiKey: this.get(`${provider.toUpperCase()}_API_KEY`),
+      apiSecret: this.get(`${provider.toUpperCase()}_API_SECRET`),
+    }
+  }
 
   public getTypeOrmConfig(): TypeOrmModuleOptions {
     return {
@@ -64,6 +74,8 @@ const configService = new ConfigService(process.env).ensureValues([
   'DB_USER',
   'DB_PASSWORD',
   'DB_NAME',
+  'BASE_URL',
+  'APP_SECRET'
 ]);
 
 export { configService };

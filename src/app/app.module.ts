@@ -7,15 +7,19 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
 import { configService } from '../config/config.service';
+import { SessionModule } from 'nestjs-session'
+import { IdentitiesModule } from 'src/identity/identities.module';
 
-console.log(process.env.DB_USER);
-console.log(configService.getTypeOrmConfig());
 @Module({
   imports: [
     ConfigModule.forRoot(),
+    SessionModule.forRoot({
+      session: { secret: configService.getSecret() },
+    }),
     TypeOrmModule.forRoot(configService.getTypeOrmConfig()),
     AuthModule,
-    UsersModule
+    UsersModule,
+    IdentitiesModule
   ],
   controllers: [AppController],
   providers: [AppService],

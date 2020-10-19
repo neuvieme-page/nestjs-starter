@@ -11,7 +11,6 @@ export const seedUser = async (connection: Connection) => {
     email: 'testneuviemepage@gmail.com',
     firstName: 'Test',
     lastName: 'TEST',
-    password,
     role: UserRole.ADMIN,
   });
 
