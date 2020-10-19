@@ -1,16 +1,21 @@
+import { ApiProperty } from '@nestjs/swagger';
 import { IsEmail, IsNotEmpty } from 'class-validator';
 
 export class LocalSignupDTO {
   @IsEmail()
   @IsNotEmpty()
-  email: string;
+  @ApiProperty()
+  email: string
 
   @IsNotEmpty()
-  firstName: string;
+  @ApiProperty()
+  firstName: string
 
   @IsNotEmpty()
-  lastName: string;
+  @ApiProperty()
+  lastName: string
 
   @IsNotEmpty()
-  password: string;
+  @ApiProperty()
+  password: string
 }
