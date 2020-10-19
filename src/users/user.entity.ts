@@ -1,4 +1,3 @@
-import { Specie } from '../species/specie.entity';
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
 
 export enum UserRole {
@@ -39,10 +38,4 @@ export class User {
     default: UserRole.USER,
   })
   role: UserRole;
-
-  @OneToMany(
-    type => Specie,
-    specie => specie.user,
-  )
-  species: Specie[];
 }
