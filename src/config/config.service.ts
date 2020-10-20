@@ -1,4 +1,5 @@
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
+import { match } from 'assert';
 require('dotenv').config();
 
 class ConfigService {
@@ -43,14 +44,26 @@ class ConfigService {
   }
 
   public getTypeOrmConfig(): TypeOrmModuleOptions {
+    const databaseURL = this.get('DATABASE_URL', false);
+
+    if (databaseURL) {
+      const postgresUrl = /^(.+?):\/\/(.+?):(.+?)@([\w-.]+?):(\d{2,4})\/(.+?)$/
+      const matches = databaseURL.match(postgresUrl)
+      if (matches) {
+        var [_, DB_PROVIDER, DB_USER, DB_PASSWORD, DB_HOST, DB_PORT, DB_NAME] = matches;
+        
+      } else {
+        throw new Error(`config error - DATABSE_URL given but with an invalid format`);
+      }
+    }
+
     return {
       type: 'postgres',
-
-      host: this.get('DB_HOST'),
-      port: parseInt(this.get('DB_PORT')),
-      username: this.get('DB_USER'),
-      password: this.get('DB_PASSWORD'),
-      database: this.get('DB_NAME'),
+      host: DB_HOST || this.get('DB_HOST', false),
+      port:  parseInt(DB_PORT || this.get('DB_PORT', false)),
+      username: DB_USER || this.get('DB_USER', false),
+      password: DB_PASSWORD || this.get('DB_PASSWORD', false),
+      database: DB_NAME || this.get('DB_NAME', false),
       entities: [
         // '**/*.entity{.ts,.js}'
       ],
@@ -69,11 +82,6 @@ class ConfigService {
 }
 
 const configService = new ConfigService(process.env).ensureValues([
-  'DB_HOST',
-  'DB_PORT',
-  'DB_USER',
-  'DB_PASSWORD',
-  'DB_NAME',
   'BASE_URL',
   'APP_SECRET'
 ]);
