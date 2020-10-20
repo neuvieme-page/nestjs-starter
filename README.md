@@ -31,15 +31,16 @@ $ npm install
 
 ## Running the app
 
+Launch database 
+
 ```bash
-# development
-$ npm run start
+$ docker-compose up -d
+```
 
-# watch mode
-$ npm run start:dev
+Launch application
 
-# production mode
-$ npm run start:prod
+```bash
+$ npm run dev
 ```
 
 ## Test
@@ -57,7 +58,7 @@ $ npm run test:cov
 
 ## License
 
-  Nest is [MIT licensed](LICENSE).
+Nest is [MIT licensed](LICENSE).
 
 
 ## TODO
