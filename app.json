@@ -6,12 +6,16 @@
   "addons": ["heroku-postgresql:hobby-dev", "bugsnag:tauron2", "adminium:petproject"],
   "env": {
     "NODE_ENV": "production",
+    "ENV": "production",
+    "NPM_CONFIG_PRODUCTION": "false",
     "APP_SECRET": {
       "description": "This gets generated",
       "generator": "secret"
-    }
+    },
+    "RUN_MIGRATIONS": "true",
+    "TYPEORM_SEEDING_SEEDS": "src/**/*.seed.ts"
   },
   "scripts": {
-    "postdeploy": "npm run db:seed"
+    "postdeploy": "npm run db:seed && heroku config:set BASE_URL=$(heroku info -s | grep web_url | cut -d= -f2)"
   }
 }
