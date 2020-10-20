@@ -8,7 +8,7 @@ import { Repository } from 'typeorm';
 import { JwtService } from '@nestjs/jwt';
 import { LocalSignupDTO } from './dto/local.signup.dto';
 import { LocalSigninDTO } from './dto/local.signin.dto';
-import { User, UserRole } from '../../users/user.entity';
+import { User, UserRole } from '../../user/user.entity';
 import { Identity } from '../../identity/identity.entity';
 import { BearerResponse } from './../interfaces/BearerResponse';
 import { encrypt, compare } from './../helpers/encryption';

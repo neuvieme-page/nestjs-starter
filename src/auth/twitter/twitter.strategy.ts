@@ -3,7 +3,7 @@ import { Strategy } from 'passport-twitter'
 import { PassportStrategy } from '@nestjs/passport';
 import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { configService } from '../../config/config.service';
-import { IdentityService } from 'src/identity/identity.service';
+import { IdentityService } from 'src/identity/identities.service';
 import { JwtService } from '@nestjs/jwt';
 
 @Injectable()

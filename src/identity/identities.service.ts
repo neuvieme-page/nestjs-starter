@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { Identity } from './identity.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { User, UserRole } from 'src/users/user.entity';
+import { User, UserRole } from 'src/user/user.entity';
 import { IdentityCreateDTO } from './dto/identity.create.dto' 
 
 @Injectable()
