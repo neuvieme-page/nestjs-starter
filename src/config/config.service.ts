@@ -72,9 +72,7 @@ class ConfigService {
 
       cli: {
         migrationsDir: 'src/db/migration',
-      },
-
-      ssl: this.isProduction(),
+      }
     };
   }
 }
