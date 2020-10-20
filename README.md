@@ -1,10 +1,11 @@
 <p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://raw.githubusercontent.com/neuvieme-page/nestjs-passport-template/master/preview.png" width="100%" alt="Nest Logo" /></a>
+  <a href="http://nestjs.com/" target="blank">
+  <img src="https://raw.githubusercontent.com/neuvieme-page/nestjs-starter/master/preview.png" width="100%" alt="Nest Logo" /></a>
 </p>
 
 # Neuviemepage - Nest.js Starter 
 
-A small typescript starter for headless api based on [Nest.js](https://github.com/nestjs/nest)
+A typescript starter for headless api based on [Nest.js](https://github.com/nestjs/nest)
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 

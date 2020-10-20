@@ -1,10 +1,10 @@
 {
-  "name": "test-api",
-  "version": "0.0.1",
-  "description": "",
-  "author": "",
-  "private": true,
-  "license": "UNLICENSED",
+  "name": "neuviemepage-nestjs-starter",
+  "version": "0.1.0",
+  "description": "A typescript starter for headless api based on Nest.js",
+  "author": "neuviemepage",
+  "private": false,
+  "license": "MIT",
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "nest build",

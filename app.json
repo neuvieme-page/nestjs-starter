@@ -1,8 +1,7 @@
 {
-  "name": "Nestjs - Passport - Template",
-  "description": "A template for getting started with the popular Nestjs framework.",
-  "repository": "https://github.com/neuvieme-page/nestjs-passport-template.git",
-  "website": "https://nestjs.com",
+  "name": "Nestjs Starter",
+  "description": "A typescript starter for headless api based on Nest.js",
+  "repository": "https://github.com/neuvieme-page/nestjs-starter.git",
   "success_url": "/",
   "addons": ["heroku-postgresql:hobby-dev", "bugsnag:tauron2", "adminium:petproject"],
   "env": {
