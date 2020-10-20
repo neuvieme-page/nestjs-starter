@@ -21,6 +21,6 @@
     "TWITTER_API_CALLBACK_URL": "<base_url>/auth/twitter/callback"
   },
   "scripts": {
-    "postdeploy": "npm run db:seed && heroku config:set BASE_URL=$(heroku info -s | grep web_url | cut -d= -f2)"
+    "postdeploy": "npm run db:seed"
   }
 }
