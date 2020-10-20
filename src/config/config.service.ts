@@ -33,11 +33,9 @@ class ConfigService {
   }
 
   public getProvider(provider) {
-    const callbackURL = 
-      this.get(`${provider.toUpperCase()}_CALLBACK_URL`, false) || `${this.get('BASE_URL')}/auth/twitter/callback`
     return {
       provider,
-      callbackURL,
+      callbackURL: this.get(`${provider.toUpperCase()}_CALLBACK_URL`, false),
       apiKey: this.get(`${provider.toUpperCase()}_API_KEY`),
       apiSecret: this.get(`${provider.toUpperCase()}_API_SECRET`),
     }
@@ -82,7 +80,6 @@ class ConfigService {
 }
 
 const configService = new ConfigService(process.env).ensureValues([
-  'BASE_URL',
   'APP_SECRET'
 ]);
 
