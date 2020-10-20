@@ -58,3 +58,10 @@ $ npm run test:cov
 ## License
 
   Nest is [MIT licensed](LICENSE).
+
+
+## TODO
+
+- Finish implement unit testing
+- Add husky and lint on commit
+
